@@ -78,25 +78,23 @@ defmodule K do
         my_stats5 = Tuple.insert_at(my_stats, 2, Tuple.duplicate(0,4))
 
         list = [1,12,545]
-        cb = &(IO.puts &item)
+        cb =  fn item -> IO.puts " bull #{item}" end
         Enum.each(list, cb)
         Enum.each(list,
             fn
                 item -> IO.puts " bull #{item}"
             end)
+        IO.puts factorial(16)
     end
 
 
-
-
-
-
-
-
-
-
-
-
-
+    def factorial(num) do
+        if num <= 1 do
+            1
+        else
+            result = num * factorial(num - 1)
+            result
+        end
+    end
 
 end
